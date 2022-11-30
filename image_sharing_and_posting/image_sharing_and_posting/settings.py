@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'img_share_post',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
