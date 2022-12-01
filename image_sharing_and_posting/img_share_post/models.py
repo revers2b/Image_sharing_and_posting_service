@@ -13,7 +13,7 @@ class Upload(models.Model):
         on_delete=models.CASCADE,
         related_name="posts",
     )
-    image = models.ImageField(("image"), upload_to="user_images/", blank=True, null=True)
+    image = models.ImageField(("image"), upload_to="images/", blank=True, null=True)
 
     def __str__(self) -> str:
         return ("{title} by {user}").format(title=self.title, user=self.user)
