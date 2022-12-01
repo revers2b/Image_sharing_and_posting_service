@@ -34,3 +34,24 @@ class Like(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user} likes {self.upload}"
+
+class comment(models.Model):
+    upload = models.ForeignKey(
+        Upload,
+        verbose_name=("upload"),
+        on_delete=models.CASCADE,
+        related_name="Comments",
+    )
+    body = models.TextField(("comment"), max_length=200)
+    user = models.ForeignKey(
+        User,
+        verbose_name=("User"),
+        on_delete=models.CASCADE,
+        related_name="comments"
+    )
+
+    def __str__(self) -> str:
+        return ("Commented on {upload_id}, by {user}").format(
+            upload_id=self.upload.id,
+            user=self.user,
+        )
