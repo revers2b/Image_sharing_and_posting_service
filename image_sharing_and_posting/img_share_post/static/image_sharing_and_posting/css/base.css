@@ -1,0 +1,76 @@
+
+body {
+    background-color: rgb(8, 8, 49);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+header, main, footer {
+    min-width: fit-content;
+}
+
+header {
+    background-color: rgb(43, 43, 94);
+}
+
+header .container {
+    display: flex;
+    flex-direction: row;    
+}
+
+header .container span {
+    align-self: center;
+    color: rgb(150, 71, 71);
+    padding: 0.5rem;
+}
+
+header a {
+    display: inline-block;
+    color: rgb(24, 222, 232);
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+header a:hover{
+    background-color: rgba(223, 182, 182, 0.2);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    max-width: 1200px;
+    min-width: 480px;
+    margin: 0 auto;
+}
+
+main {
+    flex-grow: 1;
+}
+
+h1, h2, h3, p {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+
+h1, h2, h3 {
+    background-color: rgb(52, 213, 151);
+    color: indigo;
+    border-bottom: 3px solid rgb(24, 132, 194);
+}
+
+footer {
+    background-color: rgb(4, 11, 24);
+    color: rgb(255, 255, 255);
+}
+
+footer .container {
+    display: flex;
+    align-content: stretch;
+}

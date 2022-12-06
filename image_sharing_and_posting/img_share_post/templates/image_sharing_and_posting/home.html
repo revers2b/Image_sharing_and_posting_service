@@ -1,9 +1,26 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-    <head>
-        <title>Yeah</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtih=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'image_sharing_and_posting/css/base.css' %}">
+</head>
+<body>
+    <header>
+        <a href='Home'>&#8962;</a>
+        <a href='profile'></a>
+        <span class="spacer"></span>
         <h1>nah</h1>
-    </body>
+    </header>
+    <main>
+    </main>
+    <footer>
+        <div class="container">
+            {% block footer %}<p>(C) 2022 You're not getting this</p>{% endblock footer %}
+        </div>
+    </footer>
+</body>
 </html>
