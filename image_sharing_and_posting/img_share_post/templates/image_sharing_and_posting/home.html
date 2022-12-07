@@ -10,13 +10,19 @@
 </head>
 <body>
     <header>
+        {% block nav %}
         <a href='Home'>&#8962;</a>
-        <a href='profile'></a>
+        <div class="profile">
+        <a href='profile'>Profile</a>
+        </div>
         <span class="spacer"></span>
-        <h1>nah</h1>
+        <h1>Most Liked</h1>
+            <p>test</p>
+        <h1>Newest</h1>
+        {% endblock nav%}
     </header>
-    <main>
-    </main>
+<main>
+</main>
     <footer>
         <div class="container">
             {% block footer %}<p>(C) 2022 You're not getting this</p>{% endblock footer %}
