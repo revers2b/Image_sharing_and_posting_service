@@ -13,7 +13,10 @@ header, main, footer {
 }
 
 header {
-    background-color: rgb(43, 43, 94);
+    background-color: rgb(54, 5, 91);
+    letter-spacing: 1px;
+    font-size: 17px;
+    font-weight: 650;
 }
 
 header .container {
@@ -23,7 +26,7 @@ header .container {
 
 header .container span {
     align-self: center;
-    color: rgb(150, 71, 71);
+    color: rgb(255, 0, 0);
     padding: 0.5rem;
 }
 
@@ -38,15 +41,9 @@ header a {
     flex-grow: 1;
 }
 
-header a:hover{
-    background-color: rgba(223, 182, 182, 0.2);
-}
-
 .container {
-    background-color: rgba(255, 255, 255, 0.2);
-    max-width: 1200px;
     min-width: 480px;
-    margin: 0 auto;
+    padding: 0.3rem;
 }
 
 main {
@@ -68,10 +65,17 @@ p {
     border-bottom: 5px solid aquamarine;
     border-top: 5px solid aquamarine;
     border-color: aquamarine;
+    color: blueviolet;
 }
 
-.profile {
-    background-color: brown;
+.profile h2{
+    background-color: rgb(8, 8, 49);
+    color: rgb(255, 119, 0);
+    border-bottom: 5px solid rgb(255, 119, 0);
+    max-width: 240px;
+    min-height: 260px;
+    display: inline;
+    margin: auto;
 }
 
 footer {
@@ -82,4 +86,15 @@ footer {
 footer .container {
     display: flex;
     align-content: stretch;
+}
+
+f {
+    color: rgb(221, 221, 221);
+    padding: 0.7rem;
+}
+
+.profile {
+    text-align: center;
+    letter-spacing: 8px;
+    font-size: 23px;
 }
