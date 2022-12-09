@@ -72,10 +72,9 @@ p {
     background-color: rgb(8, 8, 49);
     color: rgb(255, 119, 0);
     border-bottom: 5px solid rgb(255, 119, 0);
-    max-width: 240px;
-    min-height: 260px;
-    display: inline;
-    margin: auto;
+    margin: 10rem;
+    min-width: 500px;
+    display: inline-flex;
 }
 
 footer {
@@ -97,4 +96,5 @@ f {
     text-align: center;
     letter-spacing: 8px;
     font-size: 23px;
+    min-height: 10rem;
 }
