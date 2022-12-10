@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
@@ -16,15 +17,6 @@ def profile(request):
     template = "image_sharing_and_posting/Profile.html"
     return render(request, template)
 
-class UserCreate(generics.CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = serializers.UserSerializer
-    permission_classes = [permissions.AllowAny]
-
-    def delete(self, request, *args, **kwargs):
-        user = User.objects.filter(pk=request.user.pk)
-        if user.exists():
-            user.delete()
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        else:
-            raise ValidationError(('User does not exist.'))
+def register(response):
+    form = UserCreationForm()
+    return render(response, "image_sharing_and_posting/register.html", {"form":form})

@@ -1,0 +1,10 @@
+{% extends 'image_sharing_and_posting/home.html' %}
+
+{% block title %}Create an Account{% endblock title %}
+
+{% block content %}
+    <form method="POST" class="form-group">
+        {{form}}
+        <button type="submit" class="btn btn-success">Register</Button>
+    </form>
+{% endblock content %}
