@@ -98,3 +98,8 @@ f {
     font-size: 23px;
     min-height: 10rem;
 }
+
+.logo a {
+    color: rgb(255, 119, 0);
+    text-decoration: none;
+}
