@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from tinymce.models import HTMLField
 
 User = get_user_model()
 
 
 class Upload(models.Model):
     title = models.CharField(("Title"), max_length=100)
-    description = models.TextField(("Description"), max_length=20000)
+    description = HTMLField("Description")
     user = models.ForeignKey(
         User,
         verbose_name=("user"),
