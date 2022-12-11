@@ -18,6 +18,10 @@ def profile(request):
     template = "image_sharing_and_posting/Profile.html"
     return render(request, template)
 
+def logout(request):
+    template = "image_sharing_and_posting/logout.html"
+    return render(request, template)
+
 def register(request):
     template = "image_sharing_and_posting/register.html"
     if request.user.is_authenticated:

@@ -11,11 +11,15 @@
 <body>
     <header>
         <div class="container">
-            {% block nav %}
             <a href="{% url 'home' %}">&#8962;</a>
             <span class="spacer"></span>
             <a href="{% url 'profile' %}">Profile</a>
-            {% endblock nav%}
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Log out</a>
+            {% else %}
+                <a href="{% url 'login' %}">Log in</a>
+                <a href="{% url 'register' %}">Sign up</a>
+            {% endif %}
         </div>
     </header>
     <main>

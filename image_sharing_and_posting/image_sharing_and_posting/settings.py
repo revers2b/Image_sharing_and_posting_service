@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'img_share_post',
     'image_sharing_and_posting',
     'crispy_forms',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
