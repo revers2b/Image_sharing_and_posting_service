@@ -1,12 +1,10 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-from tinymce.models import HTMLField
-from django.template.defaultfilters import slugify
 from django.utils import timezone
+from tinymce.models import HTMLField
+from django.contrib.auth import get_user_model
+
+from django.template.defaultfilters import slugify
 import os
-
-User = get_user_model()
-
 
 class ArticleSeries(models.Model):
     def image_upload_to(self, instance=None):
@@ -55,42 +53,3 @@ class Article(models.Model):
     class Meta:
         verbose_name_plural = "Article"
         ordering = ['-published']
-
-
-# class Like(models.Model):
-#     upload = models.ForeignKey(
-#         ArticleSeries,
-#         verbose_name=("upload"),
-#         on_delete=models.CASCADE,
-#         related_name="Like"
-#     )
-#     user = models.ForeignKey(
-#         User, verbose_name=("User"),
-#         on_delete=models.CASCADE,
-#         related_name="Upload_like",
-#     )
-
-#     def __str__(self) -> str:
-#         return f"{self.user} likes {self.upload}"
-
-
-# class comment(models.Model):
-#     upload = models.ForeignKey(
-#         ArticleSeries,
-#         verbose_name=("upload"),
-#         on_delete=models.CASCADE,
-#         related_name="Comments",
-#     )
-#     body = models.TextField(("comment"), max_length=200)
-#     user = models.ForeignKey(
-#         User,
-#         verbose_name=("User"),
-#         on_delete=models.CASCADE,
-#         related_name="comments"
-#     )
-
-#     def __str__(self) -> str:
-#         return ("Commented on {upload_id}, by {user}").format(
-#             upload_id=self.upload.id,
-#             user=self.user,
-#         )
