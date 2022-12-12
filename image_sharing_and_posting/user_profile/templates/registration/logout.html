@@ -1,0 +1,6 @@
+{% extends 'image_sharing_and_posting/header.html' %}
+{% block title %}Logged out from {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Logged out</h1>
+<p>Session clossed successfully. <a href="{% url 'login' %}">Log in again</a>.</p>
+{% endblock content %}

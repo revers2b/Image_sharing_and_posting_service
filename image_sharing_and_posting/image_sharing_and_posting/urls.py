@@ -21,8 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('img_share_post.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
-    path('register/', views.register, name="register"),
     path('tinymce/', include('tinymce.urls')),
+    path('account/', include('django.contrib.auth.urls')),
+    path('user_profile/', include('user_profile.urls')),
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

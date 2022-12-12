@@ -128,3 +128,12 @@ p {
     border-top: 3px dotted rebeccapurple;
     border-bottom: none
 }
+
+.form-grid {
+    grid-template-columns: 10rem auto;
+}
+
+.table-grid {
+    display: grid;
+    padding: 0.5rem;
+}

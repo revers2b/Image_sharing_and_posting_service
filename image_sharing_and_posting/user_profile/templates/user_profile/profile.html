@@ -3,9 +3,9 @@
 {% block content %}
 <h1>{{ user }} profile</h1>
 <div class="flex-profile">
-    {% if user.profile and user.profile.photo %}
+    {% if user.profile and user.profile.image %}
         <div>
-            <img src="{{ user.profile.photo.url }}" class="user-profile-photo"
+            <img src="{{ user.profile.image.url }}" class="user-profile-image"
         </div>
     {% endif %}
     <div class="spacer">
