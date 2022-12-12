@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, SeriesCreateForm, ArticleCreateForm, SeriesUpdateForm, ArticleUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .decorators import user_is_superuser
 from .models import Article, ArticleSeries
 
 
@@ -92,3 +93,121 @@ def article(request, series: str, article: str):
         template_name='main/article.html',
         context={"object": matching_article}
         )
+
+@user_is_superuser
+def new_post(request):
+    if request.method == "POST":
+        form = ArticleCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(f"{form.cleaned_data['series'].slug}/{form.cleaned_data.get('article_slug')}")
+
+    else:
+         form = ArticleCreateForm()
+
+    return render(
+        request=request,
+        template_name='image_sharing_and_posting/new_record.html',
+        context={
+            "object": "Article",
+            "form": form
+            }
+        )
+
+@user_is_superuser
+def new_series(request):
+    if request.method == "POST":
+        form = ArticleCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(f"{form.cleaned_data['series'].slug}/{form.cleaned_data.get('article_slug')}")
+
+    else:
+         form = ArticleCreateForm()
+
+    return render(
+        request=request,
+        template_name='image_sharing_and_posting/new_record.html',
+        context={
+            "object": "Article",
+            "form": form
+            }
+        )
+
+@user_is_superuser
+def series_update(request, series):
+    matching_series = ArticleSeries.objects.filter(slug=series).first()
+
+    if request.method == "POST":
+        form = SeriesUpdateForm(request.POST, request.FILES, instance=matching_series)
+        if form.is_valid():
+            form.save()
+            return redirect('homepage')
+    
+    else:
+        form = SeriesUpdateForm(instance=matching_series)
+
+        return render(
+            request=request,
+            template_name='image_sharing_and_posting/new_record.html',
+            context={
+                "object": "Series",
+                "form": form
+                }
+            )
+
+@user_is_superuser
+def series_delete(request, series):
+    matching_series = ArticleSeries.objects.filter(slug=series).first()
+
+    if request.method == "POST":
+        matching_series.delete()
+        return redirect('/')
+    else:
+        return render(
+            request=request,
+            template_name='image_sharing_and_posting/confirm_delete.html',
+            context={
+                "object": matching_series,
+                "type": "Series"
+                }
+            )
+
+@user_is_superuser
+def article_update(request, series, article):
+    matching_article = Article.objects.filter(series__slug=series, article_slug=article).first()
+
+    if request.method == "POST":
+        form = ArticleUpdateForm(request.POST, request.FILES, instance=matching_article)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/{matching_article.slug}')
+    
+    else:
+        form = ArticleUpdateForm(instance=matching_article)
+
+        return render(
+            request=request,
+            template_name='image_sharing_and_posting/new_record.html',
+            context={
+                "object": "Article",
+                "form": form
+                }
+            )
+
+@user_is_superuser
+def article_delete(request, series, article):
+    matching_article = Article.objects.filter(series__slug=series, article_slug=article).first()
+
+    if request.method == "POST":
+        matching_article.delete()
+        return redirect('/')
+    else:
+        return render(
+            request=request,
+            template_name='image_sharing_and_posting/confirm_delete.html',
+            context={
+                "object": matching_article,
+                "type": "article"
+                }
+            )

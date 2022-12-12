@@ -110,9 +110,8 @@ img {
 }
 
 .title h2 a {
-    background-color: rgb(8, 8, 49);
+    background-color: rgb(18, 18, 62);
     color: rgb(255, 119, 0);
-    border-bottom: 5px solid rgb(255, 119, 0);
     text-decoration: none;
 }
 
@@ -121,11 +120,11 @@ img {
     border-bottom: none;
     border-top: none;
     text-decoration: none;
-    display: inline;
+    display: flex;
 }
 
 p {
-    border-top: 3px dotted rebeccapurple;
+    border-top: 4px dotted rebeccapurple;
     border-bottom: none
 }
 
@@ -137,3 +136,26 @@ p {
     display: grid;
     padding: 0.5rem;
 }
+
+.page-profile-image img {
+    max-width: 11%;
+    border-radius: 10rem;
+    border-style: solid;
+    display: grid;
+}
+
+.sub {
+    display: flex;
+    background-color: rgb(18, 18, 62);
+    flex-direction: column;
+}
+
+.btncolor {
+    background-color: gold;
+    color: gold;
+  }
+  
+  .btncolor:hover, .btn-danger:hover{
+    color: greenyellow;
+    background-color: greenyellow;
+  }

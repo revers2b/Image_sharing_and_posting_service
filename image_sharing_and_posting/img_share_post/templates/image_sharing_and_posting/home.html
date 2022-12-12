@@ -13,8 +13,12 @@
         <div class="container">
             <a href="{% url 'home' %}">&#8962;</a>
             <span class="spacer"></span>
-            <a href="{% url 'profile' %}">Profile</a>
             {% if user.is_authenticated %}
+                <div class="page-profile-image">
+                    <img src="{{ user.profile.image.url }}">
+                </div>
+                <a> {{ user.first_name }} {{ user.last_name }}</a>
+                <a href="{% url 'profile' %}">Profile</a>
                 <a href="{% url 'logout' %}">Log out</a>
             {% else %}
                 <a href="{% url 'login' %}">Log in</a>
@@ -23,26 +27,34 @@
         </div>
     </header>
     <main>
+        {% if object.author == user %}
+            <div style="float:right">
+                {% if type == "series" %}
+                    <a class="btn btncolor" href="{% url 'series_update' object.slug %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'series_delete' object.slug %}">Delete</a>
+                {% else %}
+                    <a class="btn btncolor" href="{% url 'article_update' object.series.slug object.article_slug %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'article_delete' object.series.slug object.article_slug  %}">Delete</a>
+                {% endif %}
+            </div>
+            {% endif %}
         <h1>Posts</h1>
         {% for object in objects %}
         <div class="container">
         <article>
             <div>
             </a>
-            <div class="title">
+            <div class="title sub">
                 <h2>
                     <a href="/{{object.slug}}">{{ object.title }}</a>
                 </h2>
-            </div>
-            <div class="sub">
-                <h3>
-                    <a href="/{{object.slug}}">
-                        <p>{{ object.subtitle }}</p></a>
-                </h3>
-            </div>
-            <div class="title" >
                     <a href="/{{object.slug}}">
                         <img src="{{ object.image.url }}">
+                        <h3>
+                            <a href="/{{object.slug}}">
+                            <p>{{ object.subtitle }}</p></a>
+                        </h3>
+                </div>
                     <p></p>
                     </a>
                 </div>
