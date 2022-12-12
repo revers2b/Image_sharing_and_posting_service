@@ -168,3 +168,13 @@ table {
     color: rgb(255, 119, 0);
     display: grid;
 }
+
+.big_img img {
+    max-width: 35%;
+    border-radius: none;
+}
+
+.orange h3 {
+    color: rgb(255, 119, 0);
+    margin: 3rem;
+}

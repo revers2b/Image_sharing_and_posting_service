@@ -1,0 +1,17 @@
+{% extends 'image_sharing_and_posting/header.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="container">
+                <a>New {{ object }}</a>
+                {{ form|crispy }}
+                {{ form.media }}
+            </div>
+            <div class="container">
+                <button type="submit">Publish</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

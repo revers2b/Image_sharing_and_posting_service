@@ -1,0 +1,16 @@
+{% extends 'image_sharing_and_posting/header.html' %}
+{% block content %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="container">
+                <a>Delete {{ type }}</a>
+                <h2>Are you sure you want to delete this {{ type }} "{{ object.title }}"?</h2>
+            </div>
+            <div class="container">
+                <button type="submit">Confirm</button>
+                <a class="container" href="/{{ object.slug }}">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

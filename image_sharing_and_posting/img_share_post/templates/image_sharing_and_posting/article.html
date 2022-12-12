@@ -1,0 +1,38 @@
+{% extends 'image_sharing_and_posting/header.html' %}
+{% block content %}
+<header>
+    <div>
+        <a href="{% url 'home' %}">&#8962;Back<br>to<br>home</a>
+    </div>
+</header>
+<div "container">
+    <h1>{{ object.title }}</h1>
+        <div class="big_img">
+            <a href="/{{object.slug}}"></a>
+            <img src="{{ object.image.url }}">
+            <a href="/{{object.slug}}"></a>
+            <div class="orange">
+            <h3>{{ object.subtitle }}</h3>
+            </div>
+        </div>
+            <div class="container">
+                <h2>
+                    <a>
+                        <small>Published {{ object.published|date:"F d, Y" }}</small>
+                    </a>
+                </h2>
+                    </div>
+            {% if object.author == user %}
+                <div>
+                    <a href="{% url 'article_update' object.series.slug object.article_slug %}">Update</a>
+                    <a href="{% url 'article_delete' object.series.slug object.article_slug  %}">Delete</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div id="content">
+        <div >
+            {{ object.content|safe }}
+        </div>
+    </div>
+{% endblock content %}
