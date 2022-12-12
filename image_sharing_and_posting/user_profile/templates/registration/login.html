@@ -1,8 +1,11 @@
 {% extends 'image_sharing_and_posting/header.html' %}
 {% block title %} Login to {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Login to Library</h1>
-
+<div class="container title">
+    <h2>
+        <a>Login</a>
+    </h2>
+</div>
 {% if form.errors %}
     <p class="form-error">Login error, please try again.</p>
 {% endif %}

@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import UserRegistrationForm, SeriesCreateForm, ArticleCreateForm, SeriesUpdateForm, ArticleUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
 from .decorators import user_is_superuser
 from .models import Article, ArticleSeries
 
@@ -81,7 +82,7 @@ def series(request, series: str):
     
     return render(
         request=request,
-        template_name='main/home.html',
+        template_name='image_sharing_and_posting/home.html',
         context={"objects": matching_series}
         )
 
@@ -90,7 +91,7 @@ def article(request, series: str, article: str):
     
     return render(
         request=request,
-        template_name='main/article.html',
+        template_name='image_sharing_and_posting/article.html',
         context={"object": matching_article}
         )
 

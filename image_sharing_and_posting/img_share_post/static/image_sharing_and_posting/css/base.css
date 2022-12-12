@@ -153,9 +153,18 @@ p {
 .btncolor {
     background-color: gold;
     color: gold;
-  }
+}
   
-  .btncolor:hover, .btn-danger:hover{
+.btncolor:hover, .btn-danger:hover{
     color: greenyellow;
     background-color: greenyellow;
-  }
+}
+
+.container .title h2 a {
+    background-color: rgb(54, 5, 91);
+}
+
+table {
+    color: rgb(255, 119, 0);
+    display: grid;
+}

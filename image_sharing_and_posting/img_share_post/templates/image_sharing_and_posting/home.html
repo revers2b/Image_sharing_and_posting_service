@@ -15,7 +15,7 @@
             <span class="spacer"></span>
             {% if user.is_authenticated %}
                 <div class="page-profile-image">
-                    <img src="{{ user.profile.image.url }}">
+                    <img src="{{ user_profile.image.url }}">
                 </div>
                 <a> {{ user.first_name }} {{ user.last_name }}</a>
                 <a href="{% url 'profile' %}">Profile</a>
