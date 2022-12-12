@@ -7,7 +7,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('home/', views.home, name='home'),
     path('profile/', views.profile, name='profile'),
-    path('<slug:slug>/', views.article, name='unique_slug'),
     path('login/', auth_views.LoginView.as_view(template_name = "image_sharing_and_posting/login.html"), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name = "image_sharing_and_posting/logout.html"), name='logout'),
     path('new_series', views.new_series, name='series-create'),

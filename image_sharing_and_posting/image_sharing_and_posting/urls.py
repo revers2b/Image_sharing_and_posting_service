@@ -26,5 +26,6 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('account/', include('django.contrib.auth.urls')),
     path('user_profile/', include('user_profile.urls')),
+    path('<slug:slug>/', views.article, name='unique_slug'),
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
