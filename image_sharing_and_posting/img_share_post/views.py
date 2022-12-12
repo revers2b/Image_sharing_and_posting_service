@@ -1,21 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.http import HttpResponse
-from rest_framework import generics, permissions, status
-from rest_framework.response import Response
-from rest_framework.exceptions import ValidationError
-from . import models, serializers
 from .forms import UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .models import Article, ArticleSeries
 
 
 User = get_user_model
 
 def home(request):
     template = "image_sharing_and_posting/home.html"
-    return render(request, template)
+    matching_series = ArticleSeries.objects.all()
+
+    return render(request, template, context={"objects": matching_series})
 
 def profile(request):
     template = "image_sharing_and_posting/Profile.html"
@@ -76,3 +74,21 @@ def login_cust(request):
     form = AuthenticationForm()
 
     return render(request=request, template_name="image_sharing_and_posting/login.html", context={"form": form})
+
+def series(request, series: str):
+    matching_series = Article.objects.filter(series__slug=series).all()
+    
+    return render(
+        request=request,
+        template_name='main/home.html',
+        context={"objects": matching_series}
+        )
+
+def article(request, series: str, article: str):
+    matching_article = Article.objects.filter(series__slug=series, article_slug=article).first()
+    
+    return render(
+        request=request,
+        template_name='main/article.html',
+        context={"object": matching_article}
+        )

@@ -23,9 +23,32 @@
         </div>
     </header>
     <main>
-        <h1>Most Liked</h1>
-            <p>test</p>
-        <h1>Newest</h1>
+        <h1>Posts</h1>
+        {% for object in objects %}
+        <div class="container">
+        <article>
+            <div>
+            </a>
+            <div class="title">
+                <h2>
+                    <a href="/{{object.slug}}">{{ object.title }}</a>
+                </h2>
+            </div>
+            <div class="sub">
+                <h3>
+                    <a href="/{{object.slug}}">
+                        <p>{{ object.subtitle }}</p></a>
+                </h3>
+            </div>
+            <div class="title" >
+                    <a href="/{{object.slug}}">
+                        <img src="{{ object.image.url }}">
+                    <p></p>
+                    </a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
     </main>
     <footer>
         <div class="container">

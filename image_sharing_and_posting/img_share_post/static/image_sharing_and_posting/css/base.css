@@ -103,3 +103,28 @@ f {
     color: rgb(255, 119, 0);
     text-decoration: none;
 }
+
+img {
+    max-width: 10%;
+    border-radius: 1rem;
+}
+
+.title h2 a {
+    background-color: rgb(8, 8, 49);
+    color: rgb(255, 119, 0);
+    border-bottom: 5px solid rgb(255, 119, 0);
+    text-decoration: none;
+}
+
+.sub h3 a p {
+    color: rgb(52, 213, 151);
+    border-bottom: none;
+    border-top: none;
+    text-decoration: none;
+    display: inline;
+}
+
+p {
+    border-top: 3px dotted rebeccapurple;
+    border-bottom: none
+}

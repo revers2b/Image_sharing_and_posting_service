@@ -1,10 +1,10 @@
-from django.db import models
-from django.utils import timezone
-from tinymce.models import HTMLField
-from django.contrib.auth import get_user_model
-
 from django.template.defaultfilters import slugify
+from django.contrib.auth import get_user_model
+from tinymce.models import HTMLField
+from django.utils import timezone
+from django.db import models
 import os
+
 
 class ArticleSeries(models.Model):
     def image_upload_to(self, instance=None):
@@ -25,6 +25,7 @@ class ArticleSeries(models.Model):
     class Meta:
         verbose_name_plural = "Series"
         ordering = ['-published']
+
 
 class Article(models.Model):
     def image_upload_to(self, instance=None):
